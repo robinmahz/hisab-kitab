@@ -14,7 +14,7 @@ class HisabKitabController extends Controller
     public function index()
     {
         $hisabKitabs = HisabKitab::all();
-        return view('dashboard', compact('hisabKitabs'));
+        return view('hisabkitab.index', compact('hisabKitabs'));
     }
 
     /**
