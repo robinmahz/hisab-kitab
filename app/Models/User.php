@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class User extends Authenticatable
 {
@@ -20,7 +21,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'admin',
+        'profile',
+        'bio',
+        'verified'
     ];
 
     /**
@@ -45,9 +50,5 @@ class User extends Authenticatable
     public function hisabKitabs()
     {
         return $this->hasMany(HisabKitab::class);
-    }
-    public function userProfile()
-    {
-        return $this->hasOne(UserProfile::class);
     }
 }

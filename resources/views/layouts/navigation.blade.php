@@ -39,9 +39,11 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
-                            <a href="/">Profile</a>
-                        </div>
+                        <a href="/profile/edit">
+                            <div class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
+                                Profile
+                            </div>
+                        </a>
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Settings') }}
                         </x-dropdown-link>

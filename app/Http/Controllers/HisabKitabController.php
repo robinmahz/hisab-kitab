@@ -13,7 +13,11 @@ class HisabKitabController extends Controller
      */
     public function index()
     {
-        $hisabKitabs = HisabKitab::all();
+        if (Auth::id() == 1)
+            $hisabKitabs = HisabKitab::all();
+        else
+            $hisabKitabs = HisabKitab::where('user_id', Auth::id())->get();
+
         return view('hisabkitab.index', compact('hisabKitabs'));
     }
 
@@ -67,9 +71,9 @@ class HisabKitabController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HisabKitab $hisabKitab)
+    public function destroy($id)
     {
-
+        $hisabKitab = HisabKitab::find($id);
         $hisabKitab->delete();
         return redirect('/hisabkitab');
     }
