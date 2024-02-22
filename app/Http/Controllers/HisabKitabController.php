@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HisabKitab;
+use App\Traits\accountTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,10 +14,11 @@ class HisabKitabController extends Controller
      */
     public function index()
     {
-        if (Auth::id() == 1)
-            $hisabKitabs = HisabKitab::all();
+        $paginate = 5;
+        if (Auth::user()->admin == 1)
+            $hisabKitabs = HisabKitab::latest()->paginate($paginate);
         else
-            $hisabKitabs = HisabKitab::where('user_id', Auth::id())->get();
+            $hisabKitabs = HisabKitab::where('user_id', Auth::id())->latest()->paginate($paginate);
 
         return view('hisabkitab.index', compact('hisabKitabs'));
     }

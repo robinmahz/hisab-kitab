@@ -26,7 +26,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent gap-2 text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div class="w-8 h-8 rounded-full overflow-hidden">
-                                <img src="https://hips.hearstapps.com/hmg-prod/images/mh-9-22-wick-650dcf0aeb656.jpg?crop=0.447xw:0.895xh;0,0&resize=640:*" alt="profile picture">
+                                <img src="{{Auth::user()->profile}}" alt="profile picture">
                             </div>
                             <div>{{ Auth::user()->name }}</div>
 
@@ -39,7 +39,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <a href="/profile/edit">
+                        <a href="/account">
                             <div class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out">
                                 Profile
                             </div>
